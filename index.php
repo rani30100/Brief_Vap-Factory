@@ -33,15 +33,32 @@ $selectTable = ("SELECT * FROM Vapfactory.Vapoteuses");
 $query = $db->query($selectTable);
 
 $title = $query->fetchAll(PDO::FETCH_OBJ);
+echo '<pre>';
+print_r($title);
+echo '</pre>';
 
-var_dump($title);
+
 
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
 
 }
 ?>
+ <?php
+ $titles = [
+    "Nom de l'article" -> $name,
+    "Description de l'article"-> $desciption,
+    "Référence" ->$reference
 
+ ]
+
+?>
+<ul>
+    <?php foreach($title as $titles):?>
+    <li><?= $titles[0] ?></li>
+    <?php endforeach ?>
+
+</ul>
 
 </body>
 </html>
