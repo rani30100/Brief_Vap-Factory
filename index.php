@@ -19,6 +19,10 @@
     <table class="table_products">
         <input type="button" value="Modifier la fiche produit">
     
+    <tr>
+        <th>Id</th>
+        <td><?= $titles["Id"] ?></td>
+    </tr>
         
     <tr>
         <th>Nom</th>
