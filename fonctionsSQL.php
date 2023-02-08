@@ -35,11 +35,10 @@ function getDatabaseConnexion(){
     return $title;
 }
 
-function createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite) {
-    try {
-        $connexion = getDatabaseConnexion();
-        $insertProduct = "INSERT INTO Vapoteuses (nameVap, description, ref)"
-    }
+function createProduct($id, $name, $description, $reference, $prixVente, $prixAchat, $quantite) {
+    
+        getDatabaseConnexion();
+        $insertProduct = "INSERT INTO Vapoteuses (Id, Nom de l'article, Description de l'article, Référence, Prix de vente unitaire, Prix d'achat unitaire, Quantité en stock)";
 }
 
 
