@@ -1,12 +1,5 @@
 body{
-
-    .liste{
-        padding:8px ;
-    }
-    .description{
-        background-color:rgb(167, 160, 160) ;
-    }
-
+   
     form{
         display: flex;
         margin-left: auto;
@@ -36,4 +29,23 @@ body{
 
     }
 
+}
+
+.table_products{
+    border: 2px solid black;
+    width: 60%;
+
+    tr{
+        th{
+            border: 2px solid black;
+        }
+        td{
+            border: 2px solid black;
+            white-space: normal;
+            width: 100%;
+        }
+        #products_description{
+            text-align: left;
+        }
+    }
 }
