@@ -37,8 +37,10 @@ function getDatabaseConnexion(){
 
 function createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite) {
         $connexion = getDatabaseConnexion();
-        $insertProduct = "INSERT INTO Vapoteuses (Id, Nom de l'article, Description de l'article, Référence, Prix de vente unitaire, Prix d'achat unitaire, Quantité en stock)";
-
+        $insertProduct = "INSERT INTO Vapoteuses (Nom de l'article, Description de l'article, Référence, Prix de vente unitaire, Prix d'achat unitaire, Quantité en stock)
+                        VALUES ($name,$description, $reference, $prixVente, $prixAchat, $quantite)";
+        $connexion->query($insertProduct);
+        $create = $connexion->fetchAll(PDO::FETCH_ASSOC);
 }
 
 

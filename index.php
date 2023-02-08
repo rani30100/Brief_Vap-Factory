@@ -18,11 +18,6 @@
     <img src="images/pod.jpg" alt="">
     <table class="table_products">
         <input type="button" value="Modifier la fiche produit">
-    
-    <tr>
-        <th>Id</th>
-        <td><?= $titles["Id"] ?></td>
-    </tr>
         
     <tr>
         <th>Nom</th>
@@ -62,29 +57,26 @@
 <form action="createUpdate.php" method="get">
     <h2> Ajouter une nouvelle Vapoteuse </h2>
     <div class="main_form">
-
-<label for="id">Id</label>
-<input type="text" for="id">    
     
 <label for="name">Nom de la vapoteuse</label>
-<input type="text" for="name">
+<input type="text" name="name">
 
 <label for="description">Description</label>
-<input type="text" for="description">
+<input type="text" name="description">
 
 <label for="reference">Référence </label>
-<input type="text" for="reference">
+<input type="text" name="reference">
 
 <label for="prixVente">Prix de Vente Unitaire : </label>
-<input type="text" for="prixVente">
+<input type="text" name="prixVente">
 
 <label for="prixAchat">Prix d'achat unitaire</label>
-<input type="text" for="prixAchat">
+<input type="text" name="prixAchat">
 
 <label for="quantite">Quantité </label>
-<input type="text" for="quantite">
+<input type="text" name="quantite">
 
-<input type="submit">
+<input type="submit" name="submit">
 
 </div>
 
