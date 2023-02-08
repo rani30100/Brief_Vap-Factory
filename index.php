@@ -19,6 +19,10 @@
     <table class="table_products">
         <input type="button" value="Modifier la fiche produit">
     
+    <tr>
+        <th>Id</th>
+        <td><?= $titles["Id"] ?></td>
+    </tr>
         
     <tr>
         <th>Nom</th>
@@ -55,27 +59,30 @@
 
 <?php endforeach ?> 
 
-<form action="">
+<form action="createUpdate.php" method="get">
     <h2> Ajouter une nouvelle Vapoteuse </h2>
     <div class="main_form">
 
+<label for="id">Id</label>
+<input type="text" for="id">    
+    
 <label for="name">Nom de la vapoteuse</label>
 <input type="text" for="name">
 
-<label for="name">Description</label>
-<input type="text" for="name">
+<label for="description">Description</label>
+<input type="text" for="description">
 
-<label for="name">Référence </label>
-<input type="text" for="name">
+<label for="reference">Référence </label>
+<input type="text" for="reference">
 
-<label for="name">Prix de Vente Unitaire : </label>
-<input type="text" for="name">
+<label for="prixVente">Prix de Vente Unitaire : </label>
+<input type="text" for="prixVente">
 
-<label for="name">Prix d'achat unitaire</label>
-<input type="text" for="name">
+<label for="prixAchat">Prix d'achat unitaire</label>
+<input type="text" for="prixAchat">
 
-<label for="name">Quantité </label>
-<input type="text" for="name">
+<label for="quantite">Quantité </label>
+<input type="text" for="quantite">
 
 <input type="submit">
 
