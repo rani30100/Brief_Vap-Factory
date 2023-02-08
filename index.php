@@ -8,22 +8,51 @@
     <title>Document</title>
 </head>
 <body>
+    <main>
     <h1>Base de données Vapoteuses</h1>
 
     <?php include 'fonctionsSQL.php';
     $products = getAllproducts();?>
    
-<?php foreach($products as $titles):?>
-<ul>
-    <?= $titles["Nom de l'article"] ?>
-<img src="images/pod.jpg" alt="">
-    <ol class="liste description">Description : <?= $titles["Description de l'article"] ?></ol>
-    <ol class="liste">Référence :<?= $titles["Référence"] ?></ol>
-    <ol class="liste">Prix de Vente Unitaire : <?= $titles["Prix de vente unitaire"] ?></ol>
-    <ol class="liste">Prix d'achat unitaire : <?= $titles["Prix d'achat unitaire"] ?></ol>
-    <ol class="liste">Quantité en stock : <?= $titles["Quantité en stock"] ?></ol>
-    <input type="button" value="Modifier la fiche produit">
-</ul>
+   <?php foreach($products as $titles):?>
+    <img src="images/pod.jpg" alt="">
+    <table class="table_products">
+        <input type="button" value="Modifier la fiche produit">
+    
+        
+    <tr>
+        <th>Nom</th>
+        <td><?= $titles["Nom de l'article"] ?></td>
+    </tr>
+
+    <tr>
+        <th>Description :</th>    
+        <td id="products_description"><?= $titles["Description de l'article"] ?></td>
+    </tr>
+
+    <tr></tr>
+        <th>Référence :</th>
+        <td><?= $titles["Référence"] ?></td>
+    </tr>
+
+    <tr> </tr>
+        <th>Prix de Vente Unitaire :</th>
+        <td><?= $titles["Prix de vente unitaire"] ?></td>
+    </tr>
+
+    <tr></tr>
+        <th>Prix d'achat unitaire :</th>
+        <td><?= $titles["Prix d'achat unitaire"] ?></td>
+    </tr>
+
+
+    <tr></tr>
+        <th>Quantité en stock :</th>
+        <td><?= $titles["Quantité en stock"] ?></td>
+    </tr>
+</table>
+
+
 <?php endforeach ?> 
 
 <form action="">
@@ -49,7 +78,13 @@
 <input type="text" for="name">
 
 <input type="submit">
+
 </div>
+
 </form>
+
+</main>
+
 </body>
+
 </html>
