@@ -2,10 +2,10 @@
 
 include 'fonctionsSQL.php';
 
-$id = $_GET[""];
-    $name = $_GET["nameVap"];
-    $description = $_GET["descriptions"];
-    $reference = $_GET["ref"];
+$id = $_GET["id"];
+    $name = $_GET["name"];
+    $description = $_GET["description"];
+    $reference = $_GET["reference"];
     $prixVente = $_GET["prixVente"];
     $prixAchat = $_GET["prixAchat"];
     $quantite = $_GET["quantite"];
