@@ -1,22 +1,37 @@
 <?php 
 
-include 'fonctionsSQL.php';
-if ( isset( $_GET['submit'] )){
+require_once 'fonctionsSQL.php';
 
-        $name = $_GET["name"] ;
-        $description = $_GET["description"] ;
-        $reference = $_GET["reference"] ;
-        $prixVente = $_GET["prixVente"] ;
-        $prixAchat = $_GET["prixAchat"] ;
-        $quantite = $_GET["quantite"] ;
-    
+
+$action = $_GET["action"];
+
+if ($action == "DELETE"){
+        $id = $_GET['Id'];
         
+} else {
+        $name = $_GET["Nom de l'article"] ;
+        $description = $_GET["Description de l'article"] ;
+        $reference = $_GET['Référence'] ;
+        $prixVente = $_GET['Prix de vente unitaire'];
+        $prixAchat = $_GET["Prix d'achat' unitaire"];
+        $quantite = $_GET["Quantité en stock"] ;
+    
+}if ($action == "CREATE") {
+        createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        echo "produit ajouté <br>" ;
+        echo "<a href='index.php'>Liste des produits</a>";
+}
 
-        echo '<p>'. $description.'</p>' . "\n";
-        echo '<p>'. $reference .'</p>'. "\n";
-        echo '<p>'. $prixVente .'</p>'. "\n";
-        echo '<p>'.$prixAchat .'</p>'. "\n";
-        echo '<p>'.$quantite.'</p>'. "\n";
+if ($action == "UPDATE") {
+        updateProduct($id, $name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        echo "produit modifié <br>";
+        echo "<a href='index.php'>Liste des produits</a>";
+}
+
+if ($action == "DELETE") {
+        deleteProduct($id);
+        echo "produit effacé";
+        echo "<a href='index.php'>Liste des produits</a>";
 }
 createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
 ?>
