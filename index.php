@@ -8,17 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
     <h1>Base de données Vapoteuses</h1>
 
-    <?php include 'fonctionsSQL.php';
-    $products = getDatabaseConnexion();?>
+    <?php require_once 'fonctionsSQL.php';
+    $products = getAllproducts();?>
    
    <?php foreach($products as $titles):?>
     <img src="images/pod.jpg" alt="">
     <table class="table_products">
         <input type="button" value="Modifier la fiche produit">
         
+    <tr>
+        <th>Id</th>
+        <td><?= $titles["Id"] ?></td>
+    </tr>
+
     <tr>
         <th>Nom</th>
         <td><?= $titles["Nom de l'article"] ?></td>
@@ -53,38 +57,43 @@
 
 <?php endforeach ?> 
 
-
 <form action="createUpdate.php" method="get">
-    
     <h2> Ajouter une nouvelle Vapoteuse </h2>
     <div class="main_form">
 
-
-<input type="hidden" name="id" value="<? $user['id'];  ?>"/>
-<input type="hidden" name="action" value="<? $action;  ?>"/>
-
+<label for="id">Id</label>
+<input type="text" for="id">
 
 <label for="name">Nom de la vapoteuse</label>
-<input type="text" name="name" value="<?php echo $user['nom'];  ?>">
+<input type="text" name="name">
 
 <label for="description">Description</label>
-<input type="text" name="description" value="<?php echo $user['description'];  ?>">
+<input type="text" name="description">
 
 <label for="reference">Référence </label>
-<input type="text" name="reference" value="<?php echo $user['reference'];  ?>">
+<input type="text" name="reference">
 
 <label for="prixVente">Prix de Vente Unitaire : </label>
-<input type="text" name="prixVente" value="<?php echo $user['prixVente'];  ?>">
+<input type="text" name="prixVente">
 
 <label for="prixAchat">Prix d'achat unitaire</label>
-<input type="text" name="prixAchat" value="<?php echo $user['prixAchat'];  ?>">
+<input type="text" name="prixAchat">
 
 <label for="quantite">Quantité </label>
-<input type="text" name="quantite" value="<?php echo $user['quantite'];  ?>">
+<input type="text" name="quantite">
 
 <input type="submit" name="submit">
 
-<?php
+<input type="submit">
+</div>
+</form>
+
+</main>
+
+</body>
+</html>
+
+<!-- < ?php
 
 	$id = $_GET["id"];
 	if ($id == 0) {
@@ -96,24 +105,19 @@
 		$action = "UPDATE";
 		$libelle = "Mettre a jour";
 	}
-?>
+? >
 </div>
 
 </form>
 
-<?php if ($action!="CREATE") { ?>
+< ?php if ($action!="CREATE") ?>{ 
 	<form action="createUpdate.php" method="get">
 		<input type="hidden" name="action" value="DELETE"/>
-		<input type="hidden" name="id" value="<?php echo $user['id'];  ?>"/>
+		<input type="hidden" name="id" value="< ?php echo $user['id'];  ?>"/>
 		<p>
 		<div class="button">
 			<button type="submit">Supprimer</button>
 		</div>
 		</p>
-	</form>
-	<?php } ?>
-</main>
-
-</body>
-
-</html>
+	</form> 
+	< ?php } ? > -->
