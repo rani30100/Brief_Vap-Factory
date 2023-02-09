@@ -1,5 +1,7 @@
-<?php 
+
+<?php
 function getDatabaseConnexion(){
+
     //Data server name
     $dsn = 'mysql:host=localhost';
     //user phpmyadmin
@@ -39,18 +41,73 @@ function createProduct($name, $description, $reference, $prixVente, $prixAchat, 
         $connexion = getDatabaseConnexion();
         $insertProduct = "INSERT INTO Vapoteuses (Nom de l'article, Description de l'article, Référence, Prix de vente unitaire, Prix d'achat unitaire, Quantité en stock)
                         VALUES ($name,$description, $reference, $prixVente, $prixAchat, $quantite)";
-        $connexion->query($insertProduct);
-        $create = $connexion->fetchAll(PDO::FETCH_ASSOC);
+        $connexion->exec($insertProduct);
+       
 }
 
 
 function getAllproducts(){
     // connection 
-    getDatabaseConnexion();
-   return getDatabaseConnexion();
+    $con = getDatabaseConnexion();
+    $requete = 'SELECT * from utilisateurs';
+	$rows = $con->query($requete);
+	return $rows;
+
 }
 
+// //recupere un user
+// function readUser($id) {
+//     $con = getDatabaseConnexion();
+//     $requete = "SELECT * from Vapoteuses where id = '$id' ";
+//     $stmt = $con->query($requete);
+//     $row = $stmt->fetchAll();
+//     if (!empty($row)) {
+//         return $row[0];
+//     }
+    
+// }
 
+// //met à jour le user
+// function updateUser($id, $name,$description, $reference, $prixVente, $prixAchat, $quantite) {
+//     try {
+//         $con = getDatabaseConnexion();
+//         $requete = "UPDATE Vapoteuses set 
+//                     `Nom de l'article ` = '$name',
+//                     `Description de l'article`  = '$description',
+//                     `Référence` = '$reference',
+//                     `Prix de vente unitaire`  = '$prixVente',
+//                     `Prix d'achat unitaire`= '$reference',
+//                     `Quantité` = '$prixVente',
+//                     where id = '$id' ";
+//         $stmt = $con->query($requete);
+//     }
+//     catch(PDOException $e) {
+//         echo $sql . "<br>" . $e->getMessage();
+//     }
+// }
+
+// // suprime un user
+// function deleteProduct($id) {
+//     try {
+//         $con = getDatabaseConnexion();
+//         $requete = "DELETE from Vapoteuses where id = '$id' ";
+//         $stmt = $con->query($requete);
+//     }
+//     catch(PDOException $e) {
+//         echo $sql . "<br>" . $e->getMessage();
+//     }
+// }
+
+function getNewproduct() {
+    $user['id'] = "";
+    $user['nom'] = "";
+    $user['description'] = "";
+    $user['reference'] = "";
+    $user['prixVente'] = "";
+    $user['prixVAchat'] = "";
+    $user['quantite'] = "";
+    
+}
 
 
 

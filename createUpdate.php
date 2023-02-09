@@ -1,24 +1,38 @@
-<?php 
+<?php
+	include 'fonctionsSQL.php';
+	include 'index.php';
+	$action = $_GET["action"];
 
-include 'fonctionsSQL.php';
-if ( isset( $_GET['submit'] )){
+	if ($action == "DELETE") {
+		$id = $_GET["id"];
+	} else {
+		$id = $_GET["id"];
+		$nom = $_GET["name"];
+		$description = $_GET["description"];
+		$reference = $_GET["reference"];
+		$prixVente = $_GET["prixVente"];
+		$prixAchat = $_GET["prixAchat"];
+		$quantite = $_GET["quantite"];
+	}
+	
 
-        $name = $_GET["name"] ;
-        $description = $_GET["description"] ;
-        $reference = $_GET["reference"] ;
-        $prixVente = $_GET["prixVente"] ;
-        $prixAchat = $_GET["prixAchat"] ;
-        $quantite = $_GET["quantite"] ;
-    
-        
+	if ($action == "CREATE") {
+		createUser($name,$description, $reference, $prixVente, $prixAchat, $quantite);
 
-        echo '<p>'. $description.'</p>' . "\n";
-        echo '<p>'. $reference .'</p>'. "\n";
-        echo '<p>'. $prixVente .'</p>'. "\n";
-        echo '<p>'.$prixAchat .'</p>'. "\n";
-        echo '<p>'.$quantite.'</p>'. "\n";
-}
-createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+		echo "user cree <br>";
+		echo "<a href='index.php'>Liste des utilisateurs</a>";
+		
+	}
+	
+	if ($action == "UPDATE") {
+		updateUser($id, $name,$description, $reference, $prixVente, $prixAchat, $quantite);
+		echo "user update <br>";
+		echo "<a href='index.php'>Liste des utilisateurs</a>";
+	}
+	if ($action == "DELETE") {
+		deleteUser($id);
+		echo "user delete <br>";
+		echo "<a href='index.php'>Liste des utilisateurs</a>";
+	}
+	
 ?>
-
-<a href="index.php"><input type="button" value="Page principale"></input></a>
