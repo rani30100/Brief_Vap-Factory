@@ -11,7 +11,10 @@
     <main>
     <h1>Base de données Vapoteuses</h1>
 
-    <?php require_once 'fonctionsSQL.php';
+    <?php
+    require_once 'database.php'; 
+    require_once 'fonctionsSQL.php';
+    
     $products = getAllproducts();?>
    
    <?php foreach($products as $titles):?>

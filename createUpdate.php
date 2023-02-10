@@ -3,37 +3,81 @@
 require_once 'fonctionsSQL.php';
 
 
-$action = $_GET["action"];
-
+$action = $_GET["action"] ?? null;
+$id = $_GET['id'] ?? null;
 if ($action == "DELETE"){
-        $id = $_GET['Id'];
+        $id = $_GET['Id'] ?? null;
         
 } else {
-        $name = $_GET["Nom de l'article"] ;
-        $description = $_GET["Description de l'article"] ;
-        $reference = $_GET['Référence'] ;
-        $prixVente = $_GET['Prix de vente unitaire'];
-        $prixAchat = $_GET["Prix d'achat' unitaire"];
-        $quantite = $_GET["Quantité en stock"] ;
+        $name = $_GET["name"] ?? null ;
+        $description = $_GET["description"] ?? null ;
+        $reference = $_GET['reference'] ?? null;
+        $prixVente = $_GET['prixVente'] ?? null;
+        $prixAchat = $_GET["prixAchat"] ?? null;
+        $quantite = $_GET["quantite"] ?? null ;
     
 }if ($action == "CREATE") {
-        createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        create_and_update($name, $description, $reference, $prixVente, $prixAchat, $quantite);
         echo "produit ajouté <br>" ;
         echo "<a href='index.php'>Liste des produits</a>";
+        exit;
 }
 
 if ($action == "UPDATE") {
-        updateProduct($id, $name, $description, $reference, $prixVente, $prixAchat, $quantite);
-        echo "produit modifié <br>";
-        echo "<a href='index.php'>Liste des produits</a>";
+        echo "produit Modifié <br>" ;
+        create_and_update($name, $description, $reference, $prixVente, $prixAchat, $quantite,$id);
+        echo '<a href="index.php" >retour</a>';
+        exit;
 }
 
 if ($action == "DELETE") {
         deleteProduct($id);
-        echo "produit effacé";
-        echo "<a href='index.php'>Liste des produits</a>";
+    
+        
 }
-createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        // createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
 ?>
 
-<a href="index.php"><input type="button" value="Page principale"></input></a>
+<h1><?= !empty($id) ? "Modifier" : "Ajouter"?> un produit</h1>
+<table class="table_products">
+        
+        <tr>
+            <th>Id</th>
+            <td><?php echo $id ?></td>
+        </tr>
+        
+        <tr>
+                <th>Nom</th>
+            <td><?= $name ?></td>
+        </tr>
+    
+        <tr>
+            <th>Description :</th>    
+            <td id="products_description"><?= $description ?></td>
+        </tr>
+        
+        <tr></tr>
+        <th>Référence :</th>
+        <td><?= $reference ?></td>
+</tr>
+
+<tr> 
+<th>Prix de Vente Unitaire :</th>
+<td><?= $prixVente?></td>
+</tr>
+
+<tr>
+<th>Prix d'achat unitaire :</th>
+<td><?= $prixAchat?></td>
+</tr>
+
+
+<tr>
+        <th>Quantité en stock :</th>
+        <td><?= $quantite?></td>
+</tr>
+
+</table>
+<a href="index.php" >retour</a>
+
+    
