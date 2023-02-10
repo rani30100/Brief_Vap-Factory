@@ -7,67 +7,39 @@
 require_once 'fonctionsSQL.php';
 
 
-	if ($action == "DELETE") {
-		$id = $_GET["id"];
-	} else {
-		$id = $_GET["id"];
-		$nom = $_GET["name"];
-		$description = $_GET["description"];
-		$reference = $_GET["reference"];
-		$prixVente = $_GET["prixVente"];
-		$prixAchat = $_GET["prixAchat"];
-		$quantite = $_GET["quantite"];
-	}
-	
-
-	if ($action == "CREATE") {
-		createUser($name,$description, $reference, $prixVente, $prixAchat, $quantite);
-
-		echo "user cree <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-		
-	}
-	
-	if ($action == "UPDATE") {
-		updateUser($id, $name,$description, $reference, $prixVente, $prixAchat, $quantite);
-		echo "user update <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-	}
-	if ($action == "DELETE") {
-		deleteUser($id);
-		echo "user delete <br>";
-		echo "<a href='index.php'>Liste des utilisateurs</a>";
-	}
-	
 $action = $_GET["action"];
-
+$id = $_GET['id'] ?? null;
 if ($action == "DELETE"){
-        $id = $_GET['Id'];
+        $id = $_GET['Id'] ?? null;
         
 } else {
-        $name = $_GET["Nom de l'article"] ;
-        $description = $_GET["Description de l'article"] ;
-        $reference = $_GET['Référence'] ;
-        $prixVente = $_GET['Prix de vente unitaire'];
-        $prixAchat = $_GET["Prix d'achat' unitaire"];
-        $quantite = $_GET["Quantité en stock"] ;
+        $name = $_GET["name"] ?? null ;
+        $description = $_GET["description"] ?? null ;
+        $reference = $_GET['reference'] ?? null;
+        $prixVente = $_GET['prixVente'] ?? null;
+        $prixAchat = $_GET["prixAchat"] ?? null;
+        $quantite = $_GET["quantite"] ?? null ;
     
 }if ($action == "CREATE") {
-        createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        create_and_update($name, $description, $reference, $prixVente, $prixAchat, $quantite);
         echo "produit ajouté <br>" ;
         echo "<a href='index.php'>Liste des produits</a>";
+        exit;
 }
 
 if ($action == "UPDATE") {
-        updateProduct($id, $name, $description, $reference, $prixVente, $prixAchat, $quantite);
-        echo "produit modifié <br>";
-        echo "<a href='index.php'>Liste des produits</a>";
+        echo "produit Modifié <br>" ;
+        create_and_update($name, $description, $reference, $prixVente, $prixAchat, $quantite,$id);
+        echo '<a href="index.php" >retour</a>';
+        exit;
 }
 
 if ($action == "DELETE") {
         deleteProduct($id);
-        echo "produit effacé";
-        echo "<a href='index.php'>Liste des produits</a>";
+    
+        
 }
-createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+        // createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
 ?>
+
+<a href="index.php"><input type="button" value="Page principale"></input></a>
