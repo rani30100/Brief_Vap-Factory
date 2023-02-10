@@ -90,8 +90,8 @@ function create_and_update($name, $description, $reference, $prixVente, $prixAch
             
         }
             $db = getDatabaseConnexion();
-            $studentStatement = $db->prepare($sql);
-            $studentStatement->execute();
+            $vapoteusesStatement = $db->prepare($sql);
+            $vapoteusesStatement->execute();
     
             header('Location: index.php');
             exit;
@@ -107,8 +107,8 @@ function deleteProduct($id) {
 if(!empty($id)) {
     $sql = "DELETE FROM `Vapoteuses` WHERE `Vapoteuses`.`id` = $id;";
         
-    $studentStatement = $db->prepare($sql);
-    $studentStatement->execute();
+    $vapoteusesStatement = $db->prepare($sql);
+    $vapoteusesStatement->execute();
 }
 
 header('Location: index.php');
