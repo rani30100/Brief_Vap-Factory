@@ -5,19 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <main>
-    <h1>Base de données Vapoteuses</h1>
+    <main class="main">
+        
+    <h1 class="color-pink">Base de données Vapoteuses</h1>
+    <div class="vapotforever">
+        <a href="formulaireProducts.php">Ajoute ta Vapot'</a>
+
+    </div>
 
     <?php require_once 'fonctionsSQL.php';
     $products = getAllproducts();?>
    
    <?php foreach($products as $titles):?>
-    <img src="images/pod.jpg" alt="">
+    <article class="myproducts">
+        <div class="colonneGauche">
+            <img src="images/pod.jpg" alt="">
+            
+        </div>
+
     <table class="table_products">
-        
+        <a href="formulaireProducts.php">Creer un produit</a>
     <tr>
         <th>Id</th>
         <td><?php echo '<a href=formulaireProducts.php?id='.$titles["Id"].' >'.$titles["Id"].'</a>'; ?></td>
@@ -53,11 +64,16 @@
         <th>Quantité en stock :</th>
         <td><?= $titles["Quantité en stock"] ?></td>
     </tr>
+    <tr>
+        <th class="th" colspan="2"><?php echo '<a href=formulaireProducts.php?id='.$titles["Id"].' >'."Modifier cet article".'</a>'; ?></th>
+ 
+    </tr>
 </table>
 
+</article>
 <?php endforeach ?> 
-
 </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 
