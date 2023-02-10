@@ -19,8 +19,7 @@
    <?php foreach($products as $titles):?>
     <img src="images/pod.jpg" alt="">
     <table class="table_products">
-        <input type="button" value="Modifier la fiche produit">
-        
+        <a href="formulaireProducts.php">Creer un produit</a>
     <tr>
         <th>Id</th>
         <td><?= $titles["Id"] ?></td>

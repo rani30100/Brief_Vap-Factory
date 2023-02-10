@@ -55,6 +55,23 @@ function getVapoteuses() {
 
 
 
+function deleteProduct($id) {
+    $id = $_GET["id"] ?? null;
+    $db = getDatabaseConnexion();
+
+if(!empty($id)) {
+    $sql = "DELETE FROM `Vapoteuses` WHERE `Vapoteuses`.`id` = $id;";
+        
+    $studentStatement = $db->prepare($sql);
+    $studentStatement->execute();
+}
+
+header('Location: index.php');
+exit;
+}
+
+
+
 
 
 
