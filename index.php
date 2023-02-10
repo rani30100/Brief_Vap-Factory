@@ -20,7 +20,7 @@
    <?php foreach($products as $titles):?>
     <img src="images/pod.jpg" alt="">
     <table class="table_products">
-        
+        <a href="formulaireProducts.php">Creer un produit</a>
     <tr>
         <th>Id</th>
         <td><?php echo '<a href=formulaireProducts.php?id='.$titles["Id"].' >'.$titles["Id"].'</a>'; ?></td>

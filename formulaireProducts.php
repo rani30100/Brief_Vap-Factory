@@ -2,7 +2,7 @@
 
 
 require 'fonctionsSQL.php';
-$id = $_GET["id"];
+$id = $_GET["id"] ?? null;
 	if ($id == 0) {
 		$vapoteuses = getVapoteuses();
 		$action = "CREATE";
