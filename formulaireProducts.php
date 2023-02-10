@@ -39,26 +39,26 @@ $id = $_GET["id"];
 	    </div>
 	    <div>
 	        <label for="prenom">Description de l'article</label>
-	        <input type="text" id="prenom" name="description" value="<?php echo $vapoteuses["Description de l'article"] ;  ?>">
+	        <input type="text" id="" name="description" value="<?php echo $vapoteuses["Description de l'article"] ;  ?>">
 	    </div>
 	    <div>
 	        <label for="age">Référence:</label>
-	        <input type="text" id="age" name="reference" value="<?php echo $vapoteuses['Référence'];  ?>">
+	        <input type="text" id="" name="reference" value="<?php echo $vapoteuses['Référence'];  ?>">
 	    </div>
 	    <div>
-	        <label for="adresse">Prix de vente unitaire :</label>
-	        <textarea id="adresse" name="prixVente" placeholder="<?php echo $vapoteuses['Prix de vente unitaire'];  ?>"></textarea>
+	        <label for="">Prix de vente unitaire :</label>
+	        <textarea id="" name="prixVente" placeholder=""><?php echo $vapoteuses['Prix de vente unitaire'];  ?></textarea>
 	    </div>
 
         <div>
-	        <label for="adresse">Prix d'achat unitaire :</label>
-	        <textarea id="adresse" name="prixAchat" placeholder="<?php echo $vapoteuses["Prix d'achat unitaire"] ;  ?>"></textarea>
+	        <label for="">Prix d'achat unitaire :</label>
+	        <textarea id="" name="prixAchat" placeholder=""><?php echo $vapoteuses["Prix d'achat unitaire"] ;  ?></textarea>
 	    </div>
 
 
         <div>
-	        <label for="adresse">Quantité en stock :</label>
-	        <textarea id="adresse" name="quantite" placeholder="<?php echo $vapoteuses['Quantité en stock'];  ?>"></textarea>
+	        <label for="">Quantité en stock :</label>
+	        <textarea id="" name="quantite" placeholder=""><?php echo $vapoteuses['Quantité en stock'];  ?></textarea>
 	    </div>
 
 		<div class="button">
