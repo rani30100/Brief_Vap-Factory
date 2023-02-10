@@ -1,6 +1,5 @@
 <?php
 
-
 require 'fonctionsSQL.php';
 $id = $_GET["id"] ?? null;
 	if ($id == 0) {
@@ -12,11 +11,6 @@ $id = $_GET["id"] ?? null;
 		$action = "UPDATE";
 		$libelle = "Mettre a jour";
 	}
-	
-	
-	
-
-
 ?>
 
 <html>

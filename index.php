@@ -8,21 +8,19 @@
     <title>Document</title>
 </head>
 <body>
+    <main>
     <h1>Base de données Vapoteuses</h1>
 
-    <?php
-    require_once 'database.php'; 
-    require_once 'fonctionsSQL.php';
-    
+    <?php require_once 'fonctionsSQL.php';
     $products = getAllproducts();?>
    
    <?php foreach($products as $titles):?>
     <img src="images/pod.jpg" alt="">
     <table class="table_products">
-        <a href="formulaireProducts.php">Creer un produit</a>
+        
     <tr>
         <th>Id</th>
-        <td><?= $titles["Id"] ?></td>
+        <td><?php echo '<a href=formulaireProducts.php?id='.$titles["Id"].' >'.$titles["Id"].'</a>'; ?></td>
     </tr>
 
     <tr>
@@ -59,67 +57,9 @@
 
 <?php endforeach ?> 
 
-<form action="createUpdate.php" method="get">
-    <h2> Ajouter une nouvelle Vapoteuse </h2>
-    <div class="main_form">
-
-<label for="id">Id</label>
-<input type="text" for="id">
-
-<label for="name">Nom de la vapoteuse</label>
-<input type="text" name="name">
-
-<label for="description">Description</label>
-<input type="text" name="description">
-
-<label for="reference">Référence </label>
-<input type="text" name="reference">
-
-<label for="prixVente">Prix de Vente Unitaire : </label>
-<input type="text" name="prixVente">
-
-<label for="prixAchat">Prix d'achat unitaire</label>
-<input type="text" name="prixAchat">
-
-<label for="quantite">Quantité </label>
-<input type="text" name="quantite">
-
-<input type="submit" name="submit">
-
-<input type="submit">
-</div>
-</form>
-
 </main>
 
 </body>
+
 </html>
 
-<!-- < ?php
-
-	$id = $_GET["id"];
-	if ($id == 0) {
-		$user = getNewproduct();
-		$action = "CREATE";
-		$libelle = "Creer";
-	} else {
-		$user = readUser($id);
-		$action = "UPDATE";
-		$libelle = "Mettre a jour";
-	}
-? >
-</div>
-
-</form>
-
-< ?php if ($action!="CREATE") ?>{ 
-	<form action="createUpdate.php" method="get">
-		<input type="hidden" name="action" value="DELETE"/>
-		<input type="hidden" name="id" value="< ?php echo $user['id'];  ?>"/>
-		<p>
-		<div class="button">
-			<button type="submit">Supprimer</button>
-		</div>
-		</p>
-	</form> 
-	< ?php } ? > -->

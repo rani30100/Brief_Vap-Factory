@@ -39,7 +39,7 @@ if ($action == "DELETE") {
     
         
 }
-        // createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
+
 ?>
 
 <a href="index.php"><input type="button" value="Page principale"></input></a>
