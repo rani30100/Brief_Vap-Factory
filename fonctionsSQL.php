@@ -1,8 +1,6 @@
 <?php 
 require_once 'database.php';
 
-
-
 function getAllproducts(){
     // connection 
     $connexion = getDatabaseConnexion();

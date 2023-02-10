@@ -18,8 +18,7 @@ if ($action == "DELETE"){
     
 }if ($action == "CREATE") {
         create_and_update($name, $description, $reference, $prixVente, $prixAchat, $quantite);
-        echo "produit ajouté <br>" ;
-        echo "<a href='index.php'>Liste des produits</a>";
+        header('Location: index.php');
         exit;
 }
 
