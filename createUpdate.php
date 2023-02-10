@@ -1,9 +1,13 @@
-<?php 
+<?php
+	include 'fonctionsSQL.php';
+	include 'index.php';
+	$action = $_GET["action"];
+ 
 
 require_once 'fonctionsSQL.php';
 
 
-$action = $_GET["action"] ?? null;
+$action = $_GET["action"];
 $id = $_GET['id'] ?? null;
 if ($action == "DELETE"){
         $id = $_GET['Id'] ?? null;
@@ -38,46 +42,4 @@ if ($action == "DELETE") {
         // createProduct($name, $description, $reference, $prixVente, $prixAchat, $quantite);
 ?>
 
-<h1><?= !empty($id) ? "Modifier" : "Ajouter"?> un produit</h1>
-<table class="table_products">
-        
-        <tr>
-            <th>Id</th>
-            <td><?php echo $id ?></td>
-        </tr>
-        
-        <tr>
-                <th>Nom</th>
-            <td><?= $name ?></td>
-        </tr>
-    
-        <tr>
-            <th>Description :</th>    
-            <td id="products_description"><?= $description ?></td>
-        </tr>
-        
-        <tr></tr>
-        <th>Référence :</th>
-        <td><?= $reference ?></td>
-</tr>
-
-<tr> 
-<th>Prix de Vente Unitaire :</th>
-<td><?= $prixVente?></td>
-</tr>
-
-<tr>
-<th>Prix d'achat unitaire :</th>
-<td><?= $prixAchat?></td>
-</tr>
-
-
-<tr>
-        <th>Quantité en stock :</th>
-        <td><?= $quantite?></td>
-</tr>
-
-</table>
-<a href="index.php" >retour</a>
-
-    
+<a href="index.php"><input type="button" value="Page principale"></input></a>
