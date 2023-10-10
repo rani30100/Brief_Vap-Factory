@@ -2,6 +2,7 @@
 function getDatabaseConnexion(){
     //Data server name
     $dsn = 'mysql:host=localhost;dbname=Vapfactory';
+
     //user phpmyadmin
     $user = "admin";
     //pwd
